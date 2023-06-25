@@ -1,0 +1,24 @@
+#main-container {
+    display:flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+.grid-square {
+    width: 10px;
+    height: 10px;
+    background-color: #99aa99;
+}
+
+.grid-square-filled {
+    background-color: #223322;
+}
+
+.size-button {
+    border: black 2px solid;
+    background-color: #bbbbbb;
+    color: #000;
+    font-weight: bold;
+    font-size: 20px;
+    margin-bottom: 5px;
+}
