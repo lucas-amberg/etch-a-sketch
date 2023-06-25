@@ -2,7 +2,9 @@
     display:flex;
     flex-wrap: wrap;
     flex-direction: row;
-    max-width: 672px;
+    width: 600px;
+    height: 600px;
+    border: black 2px solid;
 }
 
 .grid-square {
@@ -13,11 +15,21 @@
     background-color: #223322;
 }
 
-.size-button {
+.size-button,
+.rainbow-button,
+.clear-button {
     border: black 2px solid;
     background-color: #bbbbbb;
     color: #000;
     font-weight: bold;
     font-size: 20px;
     margin-bottom: 5px;
+    flex: 1;
+}
+
+.button-container {
+    display: flex;
+    width: 600px;
+    gap: 5px;
+    height: 60px;
 }
