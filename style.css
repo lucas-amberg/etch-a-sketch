@@ -2,11 +2,10 @@
     display:flex;
     flex-wrap: wrap;
     flex-direction: row;
+    max-width: 672px;
 }
 
 .grid-square {
-    width: 10px;
-    height: 10px;
     background-color: #99aa99;
 }
 
