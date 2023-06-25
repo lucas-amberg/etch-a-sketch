@@ -54,8 +54,8 @@ function createGrid (size) {
         let box = document.createElement("div");
         mainContainer.appendChild(box);
         box.classList.add("grid-square");
-        box.style.width = `${600/size}px`;
-        box.style.height = `${600/size}px`;
+        box.style.width = `${540/size}px`;
+        box.style.height = `${540/size}px`;
         console.log(box.style.maxWidth);
     }
 }

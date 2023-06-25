@@ -2,8 +2,8 @@
     display:flex;
     flex-wrap: wrap;
     flex-direction: row;
-    width: 600px;
-    height: 600px;
+    width: 540px;
+    height: 540px;
     border: black 2px solid;
 }
 
@@ -29,7 +29,24 @@
 
 .button-container {
     display: flex;
-    width: 600px;
+    width: 544px;
     gap: 5px;
     height: 60px;
+}
+
+.header-container {
+    display: grid;
+    width: 540px;
+}
+
+.header {
+    font-family: sans-serif;
+    font-size: 35px;
+    justify-self: center;
+}
+
+.page-container {
+    display:flex;
+    align-items: center;
+    flex-direction: column;
 }
