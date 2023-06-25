@@ -42,10 +42,10 @@ sizeButton.addEventListener("click", () => {
 });
 
 clearButton.addEventListener("click", () => {
-    const gridBoxFilled = document.querySelectorAll(".grid-square-filled");
+    const gridBoxFilled = document.querySelectorAll(".grid-square");
 
     gridBoxFilled.forEach(function(e) {
-        e.classList.remove("grid-square-filled");
+        e.style.backgroundColor = "";
     });
 });
 
