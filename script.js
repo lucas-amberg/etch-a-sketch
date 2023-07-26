@@ -5,6 +5,7 @@ const clearButton = document.querySelector(".clear-button");
 const rainbowButton = document.querySelector(".rainbow-button");
 
 let rainbowToggle = false;
+let spaceDown = false;
 
 rainbowButton.addEventListener("click", () => {
     if (rainbowToggle === false) {
@@ -85,3 +86,5 @@ function removeAllBoxes(parent) {
     }
 }
 
+createGrid(10);
+createEtch();
