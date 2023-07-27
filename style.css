@@ -1,47 +1,78 @@
+@font-face {
+    font-family: 'Lilita One';
+    src: url('fonts/LilitaOne.woff2') format('woff2'),
+        url('fonts/LilitaOne.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+:root {
+    --light-color: #e7eaf6;
+    --second-color: #a2a8d3;
+    --third-color: #38598b;
+    --dark-color: #113f67;
+    font-family: Lilita One, sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--light-color);
+}
+
 #main-container {
     display:flex;
     flex-wrap: wrap;
     flex-direction: row;
-    width: 540px;
-    height: 540px;
-    border: black 2px solid;
+    width: 30vw;
+    height: 30vw;
+    border: 3px solid var(--dark-color);
+    margin-top: 10px;
 }
 
 .grid-square {
-    background-color: #99aa99;
+    background-color: var(--second-color);
 }
 
 .grid-square-filled {
-    background-color: #223322;
+    background-color: var(--dark-color);
 }
 
 .size-button,
 .rainbow-button,
 .clear-button {
-    border: black 2px solid;
-    background-color: #bbbbbb;
-    color: #000;
+    border: 0;
+    border-radius: 10px;
+    background-color: var(--third-color);
+    color: var(--light-color);
     font-weight: bold;
-    font-size: 20px;
+    font-size: min(2vw,20px);
     margin-bottom: 5px;
     flex: 1;
+    font-family: Lilita One;
 }
 
 .button-container {
     display: flex;
-    width: 544px;
+    width: 30vw;
     gap: 5px;
     height: 60px;
 }
 
 .header-container {
     display: grid;
-    width: 540px;
+    width: 50vw;
 }
 
 .header {
-    font-family: sans-serif;
-    font-size: 35px;
+    font-family: Lilita One;
+    font-size: min(5vw,50px);
     justify-self: center;
 }
 
@@ -49,4 +80,17 @@
     display:flex;
     align-items: center;
     flex-direction: column;
+}
+
+.controls-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center
+}
+
+button:hover {
+    cursor: pointer;
+    background-color: var(--second-color);
+    color: var(--dark-color)
 }

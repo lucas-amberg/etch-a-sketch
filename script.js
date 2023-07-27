@@ -6,6 +6,7 @@ const rainbowButton = document.querySelector(".rainbow-button");
 
 let rainbowToggle = false;
 let spaceDown = false;
+let currentBoxSize = 10;
 
 rainbowButton.addEventListener("click", () => {
     if (rainbowToggle === false) {
@@ -16,30 +17,51 @@ rainbowButton.addEventListener("click", () => {
     }
 });
 
-sizeButton.addEventListener("click", () => {
-    removeAllBoxes(mainContainer);
-    let boxSizeString = prompt("What size would you like?");
-    while ((boxSizeString > 100 || boxSizeString < 1 || typeof boxSizeString !== "number") && !(parseInt(boxSizeString) > 0 && parseInt(boxSizeString) < 101)) {
-        if (boxSizeString > 100) {
-            boxSizeString = prompt("Pick a size less than 100, please.");
-            if (parseInt(boxSizeString) > 1 && parseInt(boxSizeString) < 101) {
-                break;
-            }
-        }
-        else if (boxSizeString < 1) {
-            boxSizeString = prompt("Pick a size greater than 0, please.");
-            if (parseInt(boxSizeString) > 1 && parseInt(boxSizeString) < 101) {
-                break;
-            }
-    
-        }
-        else if (typeof boxSizeString !== "number") {
-            boxSizeString = prompt("Pick a number, please.");
-        }
+document.addEventListener("keydown", (e) => {
+    if (e.keyCode === 82 || e.code === "KeyR" || e.key === "R") {
+        rainbowToggle === true ? rainbowToggle = false : rainbowToggle = true;
     }
-    boxSize = parseInt(boxSizeString);
-    createGrid(boxSize);
-    createEtch();
+});
+
+document.addEventListener("keydown", (e) => {
+    if (e.keyCode === 67 || e.code === "KeyC" || e.key === "C") {
+        const gridBoxFilled = document.querySelectorAll(".grid-square");
+
+    gridBoxFilled.forEach(function(e) {
+        e.style.backgroundColor = "";
+    });
+    }
+});
+
+sizeButton.addEventListener("click", () => {
+    let boxSizeString = prompt("What size would you like?");
+    if (boxSizeString !== null) {
+        removeAllBoxes(mainContainer);
+        while ((boxSizeString > 100 || boxSizeString < 1 || typeof boxSizeString !== "number") && !(parseInt(boxSizeString) > 0 && parseInt(boxSizeString) < 101)) {
+            if (boxSizeString > 100) {
+                boxSizeString = prompt("Pick a size less than 100, please.");
+                if (parseInt(boxSizeString) > 1 && parseInt(boxSizeString) < 101) {
+                    break;
+                }
+            }
+            else if (boxSizeString < 1) {
+                boxSizeString = prompt("Pick a size greater than 0, please.");
+                if (parseInt(boxSizeString) > 1 && parseInt(boxSizeString) < 101) {
+                    break;
+                }
+        
+            }
+            else if (typeof boxSizeString !== "number") {
+                boxSizeString = prompt("Pick a number, please.");
+            }
+        }
+        boxSize = parseInt(boxSizeString);
+        createGrid(boxSize);
+        createEtch();
+    }
+    else {
+        return;
+    }
 });
 
 clearButton.addEventListener("click", () => {
@@ -55,9 +77,8 @@ function createGrid (size) {
         let box = document.createElement("div");
         mainContainer.appendChild(box);
         box.classList.add("grid-square");
-        box.style.width = `${540/size}px`;
-        box.style.height = `${540/size}px`;
-        console.log(box.style.maxWidth);
+        box.style.width = `${30/size}vw`;
+        box.style.height = `${30/size}vw`;
     }
 }
 
@@ -68,13 +89,14 @@ function createEtch() {
         
         e.addEventListener("mouseover", () => {
             let randomColor = `rgb(${Math.random()*255}, ${Math.random()*255}, ${Math.random()*255})`;
-            if (rainbowToggle === false) {
-                e.style.backgroundColor = `#223322`;
+            if (spaceDown !== true) {
+                if (rainbowToggle === false) {
+                    e.style.backgroundColor = `#113f67`;
+                }
+                else {
+                    e.style.backgroundColor = randomColor;
+                }
             }
-            else {
-                e.style.backgroundColor = randomColor;
-            }
-            
         });
         
     });
@@ -88,3 +110,11 @@ function removeAllBoxes(parent) {
 
 createGrid(10);
 createEtch();
+
+document.addEventListener("keydown", (e) => {
+    if (e.keyCode === 32 || e.code === "Space" || e.key === " ") {
+        spaceDown === true ?
+        spaceDown = false :
+        spaceDown = true;
+    }
+})
